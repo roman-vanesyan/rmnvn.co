@@ -1,0 +1,30 @@
+---
+import Link from './Link.astro';
+
+export type Link = {
+  href: string;
+  icon?: string;
+  text: string;
+};
+
+export interface Props {
+  links: Link[];
+  title?: string;
+}
+
+const { links } = Astro.props;
+---
+
+<div>
+  <ul class="flex flex-col gap-y-4 w-full">
+    {
+      links.map((link) => (
+        <li class="w-full">
+          <Link href={link.href} icon={link.icon}>
+            {link.text}
+          </Link>
+        </li>
+      ))
+    }
+  </ul>
+</div>

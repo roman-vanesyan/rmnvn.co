@@ -1,0 +1,26 @@
+---
+export interface Props {
+  href: string;
+  icon?: string;
+}
+
+const { href, icon } = Astro.props;
+---
+
+<a
+  class="inline-flex w-full items-center border-4 border-black underline px-8 py-4 rounded-full text-xl font-bold gap-x-4"
+  href={href}
+>
+  {
+    icon ? (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        class="w-8 h-8 fill-current"
+      >
+        <use href={`#${icon}`} />
+      </svg>
+    ) : null
+  }
+  <span><slot /></span>
+</a>
