@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import netlify from '@astrojs/netlify/edge-functions';
+import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
   site: 'https://rmnvn.co',
-  integrations: [tailwind(), netlify()],
+  integrations: [tailwind()],
   output: 'server',
-  adapter: netlify({})
+  adapter: cloudflare()
 });
