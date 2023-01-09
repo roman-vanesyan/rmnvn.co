@@ -3,7 +3,7 @@ import Link from './Link.astro';
 
 export type Link = {
   href: string;
-  icon?: string;
+  icon?: { name: string; viewBox?: string };
   text: string;
 };
 
@@ -16,7 +16,7 @@ const { links } = Astro.props;
 ---
 
 <div>
-  <ul class="flex flex-col gap-y-4 w-full">
+  <ul class="flex w-full flex-col gap-y-4">
     {
       links.map((link) => (
         <li class="w-full">

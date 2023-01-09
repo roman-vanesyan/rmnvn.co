@@ -10,49 +10,55 @@ const links: Link[] = [
   {
     href: '/twitter',
     text: 'Twitter',
-    icon: 'twitter',
+    icon: { name: 'twitter' },
     hidden: false
   },
   {
     href: '/github',
     text: 'GitHub',
-    icon: 'github',
+    icon: { name: 'github' },
     hidden: false
   },
   {
     href: '/blog',
     text: 'My blog',
-    icon: 'blog',
+    icon: { name: 'blog' },
+    hidden: false
+  },
+  {
+    href: '/onlyfans',
+    text: 'OnlyFans',
+    icon: { name: 'onlyfans', viewBox: '0 0 24 16' },
     hidden: false
   },
   {
     href: '/unsplash',
     text: 'Unsplash',
-    icon: 'unsplash',
+    icon: { name: 'unsplash' },
     hidden: false
   },
   {
     href: '/instagram',
     text: 'Instagram',
-    icon: 'instagram',
+    icon: { name: 'instagram' },
     hidden: false
   },
   {
     href: '/linkedin',
     text: 'LinkedIn',
-    icon: 'linkedin',
+    icon: { name: 'linkedin' },
     hidden: false
   },
   {
     href: '/twitch',
     text: 'Twitch',
-    icon: 'twitch',
+    icon: { name: 'twitch' },
     hidden: true
   },
   {
     href: '/youtube',
     text: 'YouTube',
-    icon: 'youtube',
+    icon: { name: 'youtube' },
     hidden: true
   }
 ];
@@ -63,33 +69,33 @@ const links: Link[] = [
   <head>
     <BaseHead title="Roman Vanesyan" description="Roman's links" />
   </head>
-  <body class="font-sans w-full h-full min-h-screen flex flex-col bg-[#3956E5]">
-    <main class="flex flex-col flex-grow w-full px-4">
+  <body class="flex h-full min-h-screen w-full flex-col bg-[#3956E5] font-sans">
+    <main class="flex w-full flex-grow flex-col px-4">
       <header>
         <div
-          class="flex flex-col justify-center items-center gap-y-6 max-w-screen-sm m-auto py-12"
+          class="m-auto flex max-w-screen-sm flex-col items-center justify-center gap-y-6 py-12"
         >
-          <div class="w-64 h-64 rounded-full bg-slate-100"></div>
+          <div class="h-64 w-64 rounded-full bg-slate-100"></div>
           <div class="flex flex-col gap-y-2 text-center">
-            <h1 class="text-4xl font-bold rounded-lg">
-              <span class="inline-block bg-white rounded-full p-2"
+            <h1 class="rounded-lg text-4xl font-bold">
+              <span class="inline-block rounded-full bg-white p-2"
                 >Roman Vanesyan</span
               >
             </h1>
-            <h2 class="text-2xl rounded-lg">
-              <span class="inline-block bg-white rounded-full p-2"
+            <h2 class="rounded-lg text-2xl">
+              <span class="inline-block rounded-full bg-white p-2"
                 >Software Engineer @ Bolt</span
               >
             </h2>
-            <span class="text-xl inline-block bg-white rounded-full p-2"
+            <span class="inline-block rounded-full bg-white p-2 text-xl"
               >I'm into <b>programming</b>, <b>photography</b> and <b>gym</b>.
             </span>
           </div>
         </div>
       </header>
 
-      <div class="w-full max-w-screen-sm m-auto py-12">
-        <div class="w-full max-w-sm m-auto">
+      <div class="m-auto w-full max-w-screen-sm py-12">
+        <div class="m-auto w-full max-w-sm">
           <List
             title="More things"
             links={links.filter((value) => !value.hidden)}
@@ -138,6 +144,14 @@ const links: Link[] = [
           <symbol id="blog">
             <path
               d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
+            ></path>
+          </symbol>
+          <symbol id="onlyfans">
+            <path
+              d="M8.00001 0C6.41776 0 4.87104 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608968 4.93853C0.00346631 6.40034 -0.154961 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88744 15.5376 6.43928 15.8463C7.99113 16.155 9.59967 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1572 3.84344 13.6569 2.34315C12.1566 0.842854 10.1217 0 8.00001 0ZM8.00001 10.4C7.52533 10.4 7.06132 10.2592 6.66664 9.99553C6.27196 9.73181 5.96435 9.35698 5.7827 8.91844C5.60105 8.4799 5.55352 7.99734 5.64612 7.53178C5.73873 7.06623 5.96731 6.63859 6.30295 6.30294C6.6386 5.9673 7.06624 5.73872 7.53179 5.64611C7.99735 5.55351 8.47991 5.60104 8.91845 5.78269C9.35699 5.96434 9.73182 6.27195 9.99554 6.66663C10.2593 7.06131 10.4 7.52532 10.4 8C10.4004 8.31529 10.3386 8.62757 10.2182 8.91894C10.0977 9.21031 9.92095 9.47505 9.69801 9.69799C9.47506 9.92094 9.21032 10.0977 8.91895 10.2182C8.62758 10.3386 8.3153 10.4004 8.00001 10.4Z"
+            ></path>
+            <path
+              d="M16.992 6C19.0246 6.58496 21.424 6 21.424 6C20.7277 9.04 18.5197 10.944 15.3357 11.1757C14.7183 12.6088 13.6944 13.8295 12.3906 14.6869C11.0869 15.5443 9.56042 16.0009 7.99999 16L10.4 8.37184C12.8672 0.5312 14.1318 0 19.9827 0H24C23.328 2.96 21.0118 5.22112 16.992 6Z"
             ></path>
           </symbol>
         </defs>
