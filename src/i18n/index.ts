@@ -1,39 +1,24 @@
-import {
-  createIntl,
-  createIntlCache,
-  IntlCache,
-  defineMessages
-} from '@formatjs/intl';
+import { createIntl, createIntlCache, IntlCache } from '@formatjs/intl';
+import en from '../../locales/en.json';
+import ru from '../../locales/ru.json';
 
-export const create_i18n = (
-  locale: string,
-  options?: { cache?: IntlCache }
-) => {
+const messages = {
+  en,
+  ru
+} as const;
+
+export type SupportedLocale = (typeof supportedLocales)[number];
+export type Intl = ReturnType<typeof i18n>;
+
+export function i18n(locale: SupportedLocale, options?: { cache?: IntlCache }) {
   const cache = options?.cache ?? createIntlCache();
+  const currentLocale = locale ?? defaultLocale;
 
-  return createIntl({ locale }, cache);
-};
+  return createIntl(
+    { locale: currentLocale, messages: messages[currentLocale] },
+    cache
+  );
+}
 
-const messages = defineMessages({
-  twitter: {
-    defaultMessage: 'Twitter'
-  },
-  github: {
-    defaultMessage: 'GitHub'
-  },
-  blog: {
-    defaultMessage: 'My blog'
-  },
-  onlyfans: {
-    defaultMessage: 'OnlyFans'
-  },
-  unsplash: {
-    defaultMessage: 'Unsplash'
-  },
-  instagram: {
-    defaultMessage: 'Instagram'
-  },
-  linkedin: {
-    defaultMessage: 'LinkedIn'
-  }
-});
+export const supportedLocales = ['en', 'ru'];
+export const defaultLocale = 'en';
