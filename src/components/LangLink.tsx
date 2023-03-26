@@ -12,7 +12,6 @@ interface Props {
 export function LangLink({ locale, children }: Props) {
   const pathname = usePathname();
   const redirectedPathName = (locale: string) => {
-    console.info({ pathname, locale });
     if (!pathname) return '/';
     const segments = pathname.split('/');
     segments[1] = locale;
