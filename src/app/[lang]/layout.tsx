@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: GlobalParams }) {
 
   return {
     icons: {
-      icon: ['/favicon.svg', '/favicon.png'],
+      icon: ['/favicon.svg', '/favicon.png']
     },
 
     title: t.formatMessage(messages.title),
