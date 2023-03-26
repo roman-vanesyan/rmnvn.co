@@ -9,7 +9,6 @@
     "extract:i18n": "formatjs extract 'src/**/*.ts*' --out-file 'defualt_locales.json' --flatten && formatjs compile 'defualt_locales.json' --out-file 'locales/en.json' && rm 'defualt_locales.json'"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^0.5.0",
     "@formatjs/cli": "^6.0.4",
     "@types/negotiator": "^0.6.1",
     "@types/react": "18.0.29",
@@ -23,8 +22,7 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.4",
-    "tailwindcss": "^3.2.7",
-    "vercel": "^28.18.1"
+    "tailwindcss": "^3.2.7"
   },
   "dependencies": {
     "@formatjs/intl": "^2.6.7",
