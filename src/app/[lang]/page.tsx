@@ -1,7 +1,7 @@
 import { defineMessages } from '@formatjs/intl';
 import { List, ListLinkProps } from '../../components/List';
 import { LangLink } from '../../components/LangLink';
-import { i18n, Intl,supportedLocales } from '../../i18n';
+import { i18n, Intl } from '../../i18n';
 import { GlobalParams } from '../globals';
 
 const messages = defineMessages({
@@ -88,10 +88,6 @@ function getLinks(t: Intl): LinkProps[] {
     icon: { name: network.name, viewBox: network.iconViewBox },
     hidden: network.hidden
   }));
-}
-
-export async function generateStaticParams() {
-  return supportedLocales.map((locale) => ({ lang: locale }));
 }
 
 export default function Page({ params }: { params: GlobalParams }) {
