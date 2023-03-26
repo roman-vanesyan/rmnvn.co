@@ -1,6 +1,7 @@
 # build output
 dist/
-.netlify
+
+.next
 
 # dependencies
 node_modules/
@@ -20,3 +21,4 @@ pnpm-debug.log*
 
 # editor-specific files
 .idea
+.vscode

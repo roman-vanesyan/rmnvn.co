@@ -1,4 +1,6 @@
+/* @type {import('prettier').Options} */
 module.exports = {
+  plugins: ['prettier-plugin-tailwindcss'],
   parser: 'typescript',
   trailingComma: 'none',
   singleQuote: true,
